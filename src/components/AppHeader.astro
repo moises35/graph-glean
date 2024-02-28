@@ -1,0 +1,32 @@
+---
+import ThemeToggle from "./ThemeToggle.astro"
+import Container from "./Container.astro"
+import Github from "@/icons/Github.astro"
+import Logo from "@/icons/Logo.astro"
+---
+
+<script></script>
+
+<header>
+	<Container>
+		<nav class="flex h-20 items-center">
+			<a href="/" data-astro-prefetch="" title="Home" data-home-link="">
+				<Logo class="w-44 md:w-60" />
+			</a>
+			<div class="flex-1"></div>
+			<div class="flex items-center gap-6">
+				<a
+					target="_blank"
+					rel="noopener noreferer"
+					class="link dark:text-white"
+					href="https://github.com/moises35/graph-glean"
+				>
+					<Github aria-label="Github" title="Github" class="w-10 md:w-12" />
+				</a>
+				<ThemeToggle />
+			</div>
+		</nav>
+	</Container>
+</header>
+
+<style></style>
