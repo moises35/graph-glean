@@ -1,5 +1,6 @@
 ---
 import Container from "./Container.astro"
+import Link from "@/icons/link.astro"
 ---
 
 <div class="relative" id="home">
@@ -13,55 +14,42 @@ import Container from "./Container.astro"
 		</div>
 	</div>
 	<Container>
-		<div class="relative ml-auto pt-36">
+		<div class="relative ml-auto pt-20">
 			<div class="mx-auto text-center lg:w-2/3">
 				<div
 					class="gradient-text to-danger bg-gradient-to-r from-primary bg-clip-text text-center text-8xl font-extrabold tracking-tighter text-transparent"
 				>
-					Build fast
+					GraphGlean
 				</div>
-				<h1 class="text-5xl font-bold text-gray-900 dark:text-white md:text-6xl xl:text-7xl">
-					Comienza con <span class="text-primary dark:text-white">GraphGlean.</span>
+				<h1 class="text-4xl font-bold text-gray-900 dark:text-white md:text-5xl xl:text-5xl">
+					Open<span class="text-primary dark:text-white">Graph</span> Tool
 				</h1>
-				<p class="mt-8 text-gray-700 dark:text-gray-300">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio incidunt nam itaque sed eius
-					modi error totam sit illum. Voluptas doloribus asperiores quaerat aperiam. Quidem harum
-					omnis beatae ipsum soluta!
+				<p class="mb-6 mt-8 text-gray-700 dark:text-gray-300">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis ratione autem non quo
+					harum quasi sunt repudiandae labore a in voluptatibus quia dolore alias, dignissimos quas
+					aliquam temporibus animi nesciunt!
 				</p>
-				<div class="mt-16 flex flex-wrap justify-center gap-x-6 gap-y-4">
-					<a
-						href="#"
-						class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
-					>
-						<span class="relative text-base font-semibold text-white">Get started</span>
-					</a>
-					<a
-						href="#"
-						class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max"
-					>
-						<span class="relative text-base font-semibold text-primary dark:text-white"
-							>Learn more</span
+				<form id="gleanForm">
+					<div class="relative mb-4">
+						<div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3.5">
+							<Link />
+						</div>
+						<input
+							type="url"
+							id="input-group-1"
+							class="block w-full rounded-lg border border-gray-300 p-2.5 ps-10 text-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+							placeholder="https://my-portfolio-moises35.vercel.app/"
+						/>
+					</div>
+					<div class="mt-1 flex flex-wrap justify-center gap-x-6 gap-y-4">
+						<button
+							id="gleanBtn"
+							class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
 						>
-					</a>
-				</div>
-				<div
-					class="mt-16 hidden justify-between border-y border-gray-100 py-8 dark:border-gray-800 sm:flex"
-				>
-					<div class="text-left">
-						<h6 class="text-lg font-semibold text-gray-700 dark:text-white">The lowest price</h6>
-						<p class="mt-2 text-gray-500">Some text here</p>
+							<span class="relative text-base font-semibold text-white">Glean</span>
+						</button>
 					</div>
-					<div class="text-left">
-						<h6 class="text-lg font-semibold text-gray-700 dark:text-white">
-							The fastest on the market
-						</h6>
-						<p class="mt-2 text-gray-500">Some text here</p>
-					</div>
-					<div class="text-left">
-						<h6 class="text-lg font-semibold text-gray-700 dark:text-white">The most loved</h6>
-						<p class="mt-2 text-gray-500">Some text here</p>
-					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	</Container>
@@ -74,3 +62,34 @@ import Container from "./Container.astro"
 		background-image: linear-gradient(to bottom right, red);
 	}
 </style>
+
+<script is:inline>
+	const gleanForm = document.getElementById("gleanForm")
+
+	const validateURL = (url) => {
+		const urlRegex = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$/
+		return urlRegex.test(url)
+	}
+
+	gleanForm.addEventListener("submit", (e) => {
+		e.preventDefault()
+		const url = document.querySelector("input[type='url']").value
+		if (validateURL(url)) {
+			fetch(url, {
+				method: "GET",
+				mode: "no-cors",
+			})
+				.then((res) => {
+					console.log("Response:", res)
+					return res.text()
+				})
+				.then((data) => {
+					console.log("Data:", data)
+					console.log(data)
+				})
+				.catch((error) => console.error("Error al obtener la página web:", error))
+		} else {
+			alert("URL is not valid")
+		}
+	})
+</script>
