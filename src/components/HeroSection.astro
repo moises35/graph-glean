@@ -1,6 +1,7 @@
 ---
 import Container from "./Container.astro"
 import Link from "@/icons/link.astro"
+import { URL_SERVER } from "@/consts/server"
 ---
 
 <div class="relative" id="home">
@@ -63,7 +64,7 @@ import Link from "@/icons/link.astro"
 	}
 </style>
 
-<script is:inline>
+<script is:inline define:vars={{ url_fetch: URL_SERVER }}>
 	const gleanForm = document.getElementById("gleanForm")
 
 	const validateURL = (url) => {
@@ -73,21 +74,20 @@ import Link from "@/icons/link.astro"
 
 	gleanForm.addEventListener("submit", (e) => {
 		e.preventDefault()
-		const url = document.querySelector("input[type='url']").value
-		if (validateURL(url)) {
-			fetch(url, {
-				method: "GET",
-				mode: "no-cors",
-			})
-				.then((res) => {
-					console.log("Response:", res)
-					return res.text()
+		const url_website = document.querySelector("input[type='url']").value
+		if (validateURL(url_website)) {
+			try {
+				fetch("./.netlify/functions/scraper", {
+					method: "POST",
+					body: JSON.stringify({
+						url: url_website,
+					}),
+				}).then((res) => {
+					console.log(res)
 				})
-				.then((data) => {
-					console.log("Data:", data)
-					console.log(data)
-				})
-				.catch((error) => console.error("Error al obtener la página web:", error))
+			} catch (err) {
+				console.log(`El error ocurrio en el try: ${err}`)
+			}
 		} else {
 			alert("URL is not valid")
 		}
