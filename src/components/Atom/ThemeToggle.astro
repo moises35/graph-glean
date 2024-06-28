@@ -1,6 +1,6 @@
 ---
-import SunIcon from "@/icons/sun.astro"
-import MoonIcon from "@/icons/moon.astro"
+import SunIcon from "./../Icons/Sun.astro"
+import MoonIcon from "./../Icons/Moon.astro"
 import { DARK_THEME, LIGHT_THEME } from "@/consts/themes"
 ---
 
@@ -8,9 +8,9 @@ import { DARK_THEME, LIGHT_THEME } from "@/consts/themes"
 	id="themeToggle"
 	class="any-hover:scale-125 any-hover:opacity-70 inline-flex transition dark:text-white"
 >
-	<SunIcon class="opacity-100 transition-transform dark:-rotate-90 dark:opacity-0 w-10 md:w-12" />
+	<SunIcon class="w-10 opacity-100 transition-transform dark:-rotate-90 dark:opacity-0 md:w-12" />
 	<MoonIcon
-		class="absolute rotate-90 opacity-0 transition-transform dark:rotate-0 dark:opacity-100 w-10 md:w-12"
+		class="absolute w-10 rotate-90 opacity-0 transition-transform dark:rotate-0 dark:opacity-100 md:w-12"
 	/>
 	<span class="sr-only"></span>
 </button>

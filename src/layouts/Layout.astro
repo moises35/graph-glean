@@ -1,37 +1,19 @@
 ---
-import { AstroFont } from "astro-font"
-import AppFooter from "../components/AppFooter.astro"
-import AppHeader from "../components/AppHeader.astro"
+import AppFooter from "./../components/Layout/Footer.astro"
+import AppHeader from "./../components/Layout/Header.astro"
+
+const { title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content="ToDo" />
-		<title>GraphGlean</title>
-		<AstroFont
-			config={[
-				{
-					src: [],
-					name: "Urbanist",
-					preload: true,
-					display: "swap",
-					selector: "html",
-					fallback: "sans-serif",
-					googleFontsURL:
-						"https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap",
-				},
-			]}
-		/>
-	</head>
-	<body class="bg-white dark:bg-gray-900">
-		<AppHeader />
-		<slot />
-		<AppFooter />
+		<title>{title}</title>
 		<style>
 			html {
 				scroll-behavior: smooth;
@@ -41,5 +23,11 @@ import AppHeader from "../components/AppHeader.astro"
 				margin: 0;
 			}
 		</style>
+	</head>
+
+	<body class="bg-white dark:bg-gray-900">
+		<AppHeader />
+		<slot />
+		<AppFooter />
 	</body>
 </html>

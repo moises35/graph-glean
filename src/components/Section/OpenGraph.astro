@@ -1,0 +1,23 @@
+---
+import Discord from "./../Atom/SocialNetwork/Discord.astro"
+import Facebook from "./../Atom/SocialNetwork/Facebook.astro"
+import Instagram from "./../Atom/SocialNetwork/Instagram.astro"
+import Linkedin from "./../Atom/SocialNetwork/Linkedin.astro"
+import Twitter from "./../Atom/SocialNetwork/Twitter.astro"
+import Whatsapp from "./../Atom/SocialNetwork/Whatsapp.astro"
+
+const { title, link, description, srcCover } = Astro.props
+---
+<div>
+	<div class="container mx-auto px-8 py-4 pb-10">
+		<!-- Social Network Container -->
+		<div class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-8 md:gap-y-10">
+			<Facebook />
+			<Whatsapp />
+			<Instagram />
+			<Discord />
+			<Twitter />
+			<Linkedin />
+		<div>
+	</div>
+</div>

@@ -1,16 +1,15 @@
 ---
-import Features from "../components/Features.astro"
-import HeroSection from "../components/HeroSection.astro"
-import Layout from "../layouts/Layout.astro"
-import Testimonials from "../components/Testimonials.astro"
-import Tabs from "@/components/Tabs.astro"
+import HeroSection from "./../components/Section/Hero.astro"
+import InformationSection from "./../components/Section/Information.astro"
+import OpenGraph from "./../components/Section/OpenGraph.astro"
+import Layout from "./../layouts/Layout.astro"
 ---
 
-<Layout title="Welcome to Astrolus.">
+<Layout title="OpenGraphCollect">
 	<main class="mb-40 space-y-40">
 		<HeroSection />
-		<Tabs />
-		<Features />
-		<Testimonials />
+		<!-- <Tabs /> -->
+		<OpenGraph />
+		<InformationSection />
 	</main>
 </Layout>

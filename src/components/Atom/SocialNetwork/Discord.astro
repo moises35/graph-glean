@@ -1,0 +1,21 @@
+---
+import Badge from "./../Badge.astro"
+
+const { title, link, description, srcCover } = Astro.props
+---
+
+<div>
+	<div class="rounded-sm overflow-hidden bg-gray-800 px-4 py-4">
+		<div class="font-regular text-xs pb-3 text-white">
+			{ link }
+		</div>
+		<div class="font-bold text-md pb-3" style="color: rgb(0, 176, 244);">
+			{ title }
+		</div>
+		<p class="text-gray-200 text-sm leading-4 pb-3">
+			{ description }
+		</p>
+		<img src={ srcCover } alt={ title } class="w-full object-cover rounded-lg">
+	</div>
+	<div class="px-6 pt-4 pb-2 text-center"><Badge text="Discord" bgClass="bg-gray-800" /></div>
+</div>
