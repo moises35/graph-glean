@@ -46,10 +46,13 @@ import { URL_SERVER } from "@/consts/server"
 					<div class="mt-1 flex flex-wrap justify-center gap-x-6 gap-y-4">
 						<Button id="gleanBtn" text="Obtener" />
 					</div>
+					<!-- Error message -->
+					<p id="error-message" class="mt-2 hidden text-sm text-red-500"></p>
 				</form>
 			</div>
 		</div>
 	</Container>
+	<div id="open-graph"></div>
 </div>
 
 <style>
@@ -62,6 +65,7 @@ import { URL_SERVER } from "@/consts/server"
 
 <script is:inline define:vars={{ url_fetch: URL_SERVER }}>
 	const gleanForm = document.getElementById("gleanForm")
+	const errorMessage = document.getElementById("error-message")
 
 	const validateURL = (url) => {
 		const urlRegex = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$/
@@ -78,14 +82,30 @@ import { URL_SERVER } from "@/consts/server"
 					body: JSON.stringify({
 						url: url_website,
 					}),
-				}).then((res) => {
-					console.log(res)
 				})
+					.then((res) => {
+						if (res.ok) {
+							return res.json()
+						}
+						errorMessage.textContent = "Ocurrió un error al obtener la información."
+						errorMessage.classList.remove("hidden")
+
+						throw new Error("Ocurrió un error al obtener la información.")
+					})
+					.then((data) => {
+						// Dentro del contenedor #open-graph se inserta el componente OpenGraph
+						const openGraph = document.getElementById("open-graph")
+						openGraph.innerHTML = `<OpenGraph title="${data.og_title}" link="${data.og_url}" description="${data.og_description}" srcCover="${data.og_image}" />`
+
+						errorMessage.classList.add("hidden")
+					})
 			} catch (err) {
+				errorMessage.textContent = "Ocurrió un error al obtener la información."
 				console.log(`El error ocurrio en el try: ${err}`)
 			}
 		} else {
-			alert("URL is not valid")
+			errorMessage.textContent = "La URL no es válida."
+			errorMessage.classList.remove("hidden")
 		}
 	})
 </script>

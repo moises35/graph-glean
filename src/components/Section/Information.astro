@@ -32,6 +32,8 @@ const informationListCard = [
 		altImage: "burger illustration",
 	},
 ]
+
+const { title, description, srcImage, altImage } = Astro.props
 ---
 
 <div id="features">
@@ -39,7 +41,16 @@ const informationListCard = [
 		<div
 			class="mt-16 grid divide-x divide-y divide-gray-100 overflow-hidden rounded-3xl border border-gray-100 text-gray-600 dark:divide-gray-700 dark:border-gray-700 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4"
 		>
-			{informationListCard.map((card) => <InfoCard {...card} />)}
+			{
+				informationListCard.map((card) => (
+					<InfoCard
+						altImage={card.altImage}
+						description={card.description}
+						srcImage={card.srcImage}
+						title={card.title}
+					/>
+				))
+			}
 		</div>
 	</Container>
 </div>
