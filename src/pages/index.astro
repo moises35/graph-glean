@@ -1,22 +1,12 @@
 ---
-import HeroSection from "./../components/Section/Hero.astro"
-import InformationSection from "./../components/Section/Information.astro"
-import OpenGraph from "./../components/Section/OpenGraph.astro"
-import Layout from "./../layouts/Layout.astro"
-
-const objectProp = {
-	title: "GraphGlean",
-	link: "https://graphglean.com",
-	description:
-		"GraphGlean is a tool that helps you to preview how your website will look when shared on social media platforms.",
-	srcCover: "https://cdn-icons-png.flaticon.com/512/4341/4341139.png",
-}
+import Hero from "@/components/Section/Hero.svelte"
+import InformationSection from "@/components/Section/Information.astro"
+import Layout from "@/layouts/Layout.astro"
 ---
 
 <Layout title="GraphGlean">
 	<main class="mb-40 space-y-40">
-		<HeroSection />
-		<OpenGraph {...objectProp} />
+		<Hero client:visible />
 		<InformationSection />
 	</main>
 </Layout>
