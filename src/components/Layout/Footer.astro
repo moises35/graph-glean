@@ -1,7 +1,27 @@
 ---
-import Container from "./../Atom/Container.astro"
+import Logo from "@/components/Icons/Logo.astro"
+
+const year = new Date().getFullYear()
 ---
 
-<footer class="py-20 md:py-40">
-	<Container> Soy el footer </Container>
+<footer class="m-4 rounded-lg bg-white shadow dark:bg-gray-900">
+	<div class="mx-auto w-full max-w-screen-xl p-4 md:py-8">
+		<hr class="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
+		<div class="mb-5 sm:flex sm:items-center sm:justify-center">
+			<a href="/" class="flex items-center space-x-3 sm:mb-0 rtl:space-x-reverse">
+				<Logo class="w-44 md:w-60" />
+			</a>
+		</div>
+		<div class="text-center text-sm font-medium uppercase text-gray-700 dark:text-gray-300">
+			<p class="mb-1">¡Muchas gracias por ver mi trabajo!👋🏻</p>
+			<a
+				href="https://moises35.vercel.app/"
+				target="_blank"
+				class="opacity-60 hover:text-primary hover:underline"
+			>
+				Moisés Alvarenga</a
+			>
+			<span class="opacity-100"> - {year}</span>
+		</div>
+	</div>
 </footer>
