@@ -13,16 +13,18 @@ exports.handler = async (event, context) => {
 		const metadata = {}
 
 		// Buscar todas las etiquetas <meta> en el elemento <head>
-		$("head meta").each(function() {
+		$("head meta").each(function () {
 			const property = $(this).attr("property")
 			const name = $(this).attr("name")
 			const content = $(this).attr("content")
 
-			// Si el atributo "property" comienza con "og:" o el atributo "name" comienza con "twitter:", agregarlo a los metadatos
 			if (property && property.startsWith("og:")) {
-				metadata[property] = content // Quita el prefijo "og:" del nombre de propiedad
+				// Reemplazar el : por _
+				const key = property.replace(":", "_")
+				metadata[key] = content
 			} else if (name && name.startsWith("twitter:")) {
-				metadata[name] = content
+				const key = name.replace(":", "_")
+				metadata[key] = content
 			}
 		})
 
