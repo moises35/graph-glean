@@ -1,7 +1,7 @@
 ---
-import ThemeToggle from "../Atom/ThemeToggle.astro"
-import Container from "../Atom/Container.astro"
-import Github from "./../Icons/Github.astro"
+import ThemeToggle from "@/components/Atom/ThemeToggle.astro"
+import Container from "@/components/Atom/Container.astro"
+import Github from "@/components/Icons/Github.astro"
 import Logo from "@/components/Icons/Logo.astro"
 ---
 
@@ -10,8 +10,14 @@ import Logo from "@/components/Icons/Logo.astro"
 <header>
 	<Container>
 		<nav class="flex h-20 items-center">
-			<a href="/" data-astro-prefetch="" title="GraphGlean - Home" data-home-link="">
-				<Logo class="w-44 md:w-60" />
+			<a
+				href="/"
+				data-astro-prefetch=""
+				aria-label="GraphGlean - Home"
+				title="GraphGlean - Home"
+				data-home-link=""
+			>
+				<Logo aria-label="GraphGlean" title="GraphGlean" class="w-44 md:w-60" />
 			</a>
 			<div class="flex-1"></div>
 			<div class="flex items-center gap-6">
@@ -19,6 +25,8 @@ import Logo from "@/components/Icons/Logo.astro"
 					target="_blank"
 					rel="noopener noreferer"
 					class="link dark:text-white"
+					aria-label="GraphGlean Github Repository"
+					title="Github - GraphGlean"
 					href="https://github.com/moises35/graph-glean"
 				>
 					<Github aria-label="Github" title="Github" class="w-10 md:w-12" />

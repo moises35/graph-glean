@@ -26,7 +26,7 @@
 		<div class="relative ml-auto pt-20">
 			<div class="mx-auto text-center lg:w-2/3">
 				<div
-					class="gradient-text to-danger bg-gradient-to-r from-primary to-purple-400 bg-clip-text pb-4 text-center text-8xl font-extrabold tracking-tighter text-transparent"
+					class="gradient-text to-danger bg-gradient-to-r from-primary to-purple-400 bg-clip-text pb-4 text-center text-5xl sm:text-6xl lg:text-8xl font-extrabold tracking-tighter text-transparent"
 				>
 					GraphGlean
 				</div>
