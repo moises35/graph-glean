@@ -21,17 +21,10 @@
     "astro": "^4.11.3",
     "astro-font": "^0.0.72",
     "cheerio": "^1.0.0-rc.12",
-    "cheerio-select": "^2.1.0",
-    "dom-serializer": "^2.0.0",
-    "domhandler": "^5.0.3",
-    "domutils": "^3.1.0",
-    "htmlparser2": "^9.1.0",
-    "node-fetch": "2.6.1",
-    "parse5": "^7.1.2",
-    "parse5-htmlparser2-tree-adapter": "^7.0.0",
     "svelte": "^4.2.18"
   },
   "devDependencies": {
+		"node-fetch": "2.6.1",
     "@antfu/eslint-config": "0.43.1",
     "@astrojs/check": "0.5.6",
     "@astrojs/tailwind": "^5.1.0",
