@@ -1,7 +1,8 @@
-const fetch = require("node-fetch")
-const cheerio = require("cheerio")
+import cheerio from "cheerio"
 
-exports.handler = async (event, context) => {
+// 'Access-Control-Allow-Credentials': "true"
+
+export const handler = async (event, context) => {
 	const params = JSON.parse(event.body)
 	const { url } = params
 
@@ -26,11 +27,6 @@ exports.handler = async (event, context) => {
 				const key = name.replace(":", "_")
 				metadata[key] = content
 			}
-		})
-
-		// Imprimir los metadatos
-		Object.keys(metadata).forEach(key => {
-			console.log(`${key}: ${metadata[key]}`)
 		})
 
 		return {
