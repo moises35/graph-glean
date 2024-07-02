@@ -3,7 +3,7 @@ import fetch from "node-fetch"
 
 // 'Access-Control-Allow-Credentials': "true"
 
-export const handler = async () => {
+export const handler = async (event, context) => {
 	const params = JSON.parse(event.body)
 	const { url } = params
 
