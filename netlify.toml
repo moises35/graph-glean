@@ -1,2 +1,5 @@
 [build]
 	functions="serverless/"
+
+[functions]
+  node_bundler = "nft"
