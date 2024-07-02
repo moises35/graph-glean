@@ -20,6 +20,9 @@ importers:
       cheerio:
         specifier: ^1.0.0-rc.12
         version: 1.0.0-rc.12
+      cheerio-select:
+        specifier: ^2.1.0
+        version: 2.1.0
       node-fetch:
         specifier: 2.6.1
         version: 2.6.1
@@ -4141,7 +4144,7 @@ snapshots:
   '@sveltejs/vite-plugin-svelte-inspector@2.1.0(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.2))(svelte@4.2.18)(vite@5.3.2)':
     dependencies:
       '@sveltejs/vite-plugin-svelte': 3.1.1(svelte@4.2.18)(vite@5.3.2)
-      debug: 4.3.4
+      debug: 4.3.5
       svelte: 4.2.18
       vite: 5.3.2
     transitivePeerDependencies:
@@ -7375,7 +7378,7 @@ snapshots:
     dependencies:
       '@volar/typescript': 2.0.4
       path-browserify: 1.0.1
-      semver: 7.6.0
+      semver: 7.6.2
       typescript-auto-import-cache: 0.3.2
       vscode-languageserver-textdocument: 1.0.11
       vscode-nls: 5.2.0

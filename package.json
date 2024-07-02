@@ -2,7 +2,7 @@
   "name": "graphglean",
   "version": "0.0.1",
   "private": true,
-	"type": "module",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -21,6 +21,7 @@
     "astro": "^4.11.3",
     "astro-font": "^0.0.72",
     "cheerio": "^1.0.0-rc.12",
+    "cheerio-select": "^2.1.0",
     "node-fetch": "2.6.1",
     "svelte": "^4.2.18"
   },
