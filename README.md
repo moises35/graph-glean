@@ -1,17 +1,10 @@
-# GraphGlean
-
-Descripción de GraphGlean
-<div align="center">
-<a href="https://graphglean.vercel.app">
-<!-- <img src="www.google.com"> -->
-</a>
-<p></p>
+<div align="center"> 
+	<a href="https://graphglean.netlify.app">
+		<img src="https://github.com/moises35/graph-glean/assets/85299373/841423ac-58a5-46f7-9620-5793f482ea59" width="50%" >
+	</a>
 </div>
 
-
-<!-- ![GraphGlean based light theme](./public/graphglen-light.png)  -->
-<!-- ![GraphGlean based dark theme](./public/graphglen-dark.png) -->
-
+<hr/>
 
 <div align="center">
 
@@ -23,6 +16,13 @@ Descripción de GraphGlean
 ![Tailwind CSS Badge](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=fff&style=flat)
 
 </div>
+
+![GraphGlean based dark theme](https://github.com/moises35/graph-glean/assets/85299373/692cccfc-aba0-4c51-aa81-4e2cb9368417)
+
+
+![GraphGlean based light theme](https://github.com/moises35/graph-glean/assets/85299373/9c308161-c163-4fe7-ac61-6f0d4bda7e98)
+
+
 
 
 ## 🚀 Getting Started
